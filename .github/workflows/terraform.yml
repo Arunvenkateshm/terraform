@@ -17,7 +17,15 @@ jobs:
         uses: hashicorp/setup-terraform@v3.1.1
         with:
           terraform_version: 1.9.3  # Specify the Terraform version
-
+          
+      - name: installing AWS CLI
+        run: |
+            sudo yum install unzip
+            curl "https://d1uj6qtbmh3dt5.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install  
+            aws --version
+        
       - name: Terraform Init
         run: terraform init -reconfigure
 
