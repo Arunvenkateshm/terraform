@@ -4,8 +4,6 @@ terraform {
     key            = "terraform.tfstate"   # Path to the state file in the bucket
     region         = "us-east-1"                  # Change to your region
     dynamodb_table = "db01"            # For state locking
-    access_key  = ${{ secrets.AWS_ACCESS_KEY_ID }}
-    secret_key  = ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   }
 }
 
