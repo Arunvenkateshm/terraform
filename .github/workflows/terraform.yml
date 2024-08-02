@@ -22,11 +22,15 @@ jobs:
         run: |
           # Update package list and install unzip
           sudo apt-get update -y
-          sudo apt-get install -y unzip
-          
+          sudo apt-get install -y unzip curl
+      
           # Download AWS CLI v2 installer
           curl -L "https://d1uj6qtbmh3dt5.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          
+      
+          # Check file type and size
+          file awscliv2.zip
+          ls -l awscliv2.zip
+      
           # Verify the file was downloaded
           if [ -s awscliv2.zip ]; then
             echo "Download successful, starting unzip..."
@@ -35,12 +39,13 @@ jobs:
             echo "Download failed or file is empty."
             exit 1
           fi
-        
+      
           # Install AWS CLI
           sudo ./aws/install
-          
+      
           # Verify AWS CLI installation
           aws --version
+
   
           
       - name: Terraform Init
