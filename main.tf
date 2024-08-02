@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "s3bu100"  # Replace with your bucket name
+    bucket         = "s3bu01"  # Replace with your bucket name
     key            = "terraform.tfstate"   # Path to the state file in the bucket
     region         = "us-east-1"                  # Change to your region
     dynamodb_table = "db01"            # For state locking
@@ -40,7 +40,7 @@ resource "aws_security_group" "SG_i_22_80" {
 }
 
 resource "aws_subnet" "private" {
-  vpc_id                  = "vpc-07ebbeb84822543e5"
+  vpc_id                  = "vpc-08c4e13a3372732c3"
   cidr_block              = "172.31.96.0/25"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = false
