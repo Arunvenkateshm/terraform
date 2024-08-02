@@ -30,6 +30,9 @@ jobs:
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set default.region ${{ secrets.AWS_DEFAULT_REGION }}
           
+      - name: awscli get caller id
+        run: aws sts get-caller-identity   
+        
       - name: Terraform Init
         run: terraform init -reconfigure
 
